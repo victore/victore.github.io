@@ -1,0 +1,340 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+<body>
+	<Header />
+	<main>
+
+		<!-- ── Hero ──────────────────────────────── -->
+		<section class="hero fade-up">
+			<div class="hero-badge">Available for interesting conversations</div>
+			<h1>Victor Guadarrama</h1>
+			<p class="hero-sub">
+				Software Engineer from <span class="flag">🇲🇽</span> focused on building
+				AI-augmented products that solve real problems at scale.
+			</p>
+		</section>
+
+		<!-- ── Bio ───────────────────────────────── -->
+		<section class="bio fade-up fade-up-d1">
+			<p>
+				Currently at <a href="https://www.infosel.com" target="_blank" rel="noopener">Infosel</a>,
+				working on modern software systems used by real people. Previously full-stack across
+				startups and digital agencies — comfortable owning the whole lifecycle from architecture
+				to production.
+			</p>
+			<p class="bio-ai">
+				I think AI is the most significant leverage point engineers have right now.
+				I integrate it into how I design systems, how I work, and what I ship.
+				You can find me on <a href="https://www.linkedin.com/in/victorgu/" target="_blank" rel="noopener">LinkedIn</a>.
+			</p>
+		</section>
+
+		<div class="divider fade-up fade-up-d1"></div>
+
+		<!-- ── Now ───────────────────────────────── -->
+		<section class="now-grid fade-up fade-up-d2">
+
+			<div class="now-card">
+				<h4 class="now-label">📱 Learning now</h4>
+				<ul class="now-list">
+					<li>Kotlin &amp; Kotlin Multiplatform</li>
+					<li>AI Agents &amp; RAG Architecture</li>
+				</ul>
+			</div>
+
+			<div class="now-card">
+				<h4 class="now-label">📖 Reading</h4>
+				<ul class="now-list">
+					<li>
+						<span class="now-title">A Philosophy of Software Design</span>
+						<span class="now-by">John Ousterhout</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="now-card">
+				<h4 class="now-label">🎧 Listening</h4>
+				<ul class="now-list">
+					<li>
+						<span class="now-title">Can't Hurt Me</span>
+						<span class="now-by">David Goggins</span>
+					</li>
+				</ul>
+			</div>
+
+		</section>
+
+		<div class="divider fade-up fade-up-d3"></div>
+
+		<!-- ── Interests (tabs) ───────────────────── -->
+		<section class="interests fade-up fade-up-d3">
+			<h4 class="section-label">Interests</h4>
+
+			<div class="tab-bar" role="tablist" aria-label="Interests">
+				<button role="tab" aria-selected="true"  id="tab-all"     aria-controls="panel-all"     class="tab-btn active">All</button>
+				<button role="tab" aria-selected="false" id="tab-culture" aria-controls="panel-culture" class="tab-btn">Culture</button>
+				<button role="tab" aria-selected="false" id="tab-mind"    aria-controls="panel-mind"    class="tab-btn">Mind</button>
+				<button role="tab" aria-selected="false" id="tab-body"    aria-controls="panel-body"    class="tab-btn">Body</button>
+			</div>
+
+			<div class="tab-panels">
+				<!-- All -->
+				<div id="panel-all" role="tabpanel" aria-labelledby="tab-all" class="tab-panel active">
+					<div class="interest-chips">
+						<span class="chip">🏀 basketball</span>
+						<span class="chip">🎤 rap music</span>
+						<span class="chip">♟️ chess</span>
+						<span class="chip">🚲 bikes</span>
+						<span class="chip">🎧 podcasts</span>
+						<span class="chip">🎹 piano</span>
+						<span class="chip">👟 Nike</span>
+						<span class="chip">📖 Borges</span>
+						<span class="chip">🧘‍♂️ buddhism</span>
+						<span class="chip">🕺 cumbia</span>
+						<span class="chip">📚 books</span>
+					</div>
+				</div>
+				<!-- Culture -->
+				<div id="panel-culture" role="tabpanel" aria-labelledby="tab-culture" class="tab-panel">
+					<div class="interest-chips">
+						<span class="chip">🎤 rap music</span>
+						<span class="chip">🕺 cumbia</span>
+						<span class="chip">📖 Borges</span>
+						<span class="chip">📚 books</span>
+						<span class="chip">👟 Nike</span>
+					</div>
+				</div>
+				<!-- Mind -->
+				<div id="panel-mind" role="tabpanel" aria-labelledby="tab-mind" class="tab-panel">
+					<div class="interest-chips">
+						<span class="chip">♟️ chess</span>
+						<span class="chip">🧘‍♂️ buddhism</span>
+						<span class="chip">🎹 piano</span>
+						<span class="chip">🎧 podcasts</span>
+					</div>
+				</div>
+				<!-- Body -->
+				<div id="panel-body" role="tabpanel" aria-labelledby="tab-body" class="tab-panel">
+					<div class="interest-chips">
+						<span class="chip">🏀 basketball</span>
+						<span class="chip">🚲 bikes</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+	<Footer />
+</body>
+</html>
+
+<style is:global>
+
+/* ── Hero ─────────────────────────────────────────────── */
+.hero { margin-bottom: 2rem; }
+
+.hero-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-size: 0.72rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: #22c997;
+	background: rgba(34,201,151,0.1);
+	border: 1px solid rgba(34,201,151,0.2);
+	border-radius: 100px;
+	padding: 0.3em 0.85em;
+	margin-bottom: 1.25rem;
+}
+.hero-badge::before {
+	content: '';
+	display: block;
+	width: 6px; height: 6px;
+	border-radius: 50%;
+	background: #22c997;
+	animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+	0%, 100% { opacity: 1; }
+	50%       { opacity: 0.35; }
+}
+
+h1 {
+	margin-bottom: 0.6rem;
+}
+
+.hero-sub {
+	font-size: 1.15rem;
+	color: #8b8b99;
+	max-width: 52ch;
+	line-height: 1.6;
+	margin: 0;
+}
+.flag { font-style: normal; }
+
+/* ── Bio ─────────────────────────────────────────────── */
+.bio {
+	max-width: 60ch;
+	margin-bottom: 0;
+}
+.bio p { margin-bottom: 0.9rem; }
+.bio-ai {
+	padding: 1rem 1.25rem;
+	background: rgba(108,140,255,0.05);
+	border: 1px solid rgba(108,140,255,0.12);
+	border-left: 3px solid rgba(108,140,255,0.5);
+	border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+	color: #8b8b99;
+	font-style: italic;
+	margin-bottom: 0;
+}
+
+/* ── Divider ─────────────────────────────────────────── */
+.divider { height: 1px; background: rgba(255,255,255,0.06); margin: 2.5rem 0; }
+
+/* ── Now section ─────────────────────────────────────── */
+.now-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+}
+@media (max-width: 620px) {
+	.now-grid { grid-template-columns: 1fr; }
+}
+
+.now-card {
+	background: var(--c-surface);
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-md);
+	padding: 1.25rem 1.4rem;
+	transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.now-card:hover {
+	border-color: var(--c-border-mid);
+	transform: translateY(-2px);
+}
+
+.now-label {
+	font-size: 0.72rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.09em;
+	color: #44444f;
+	margin-bottom: 0.85rem;
+}
+
+.now-list {
+	list-style: none;
+	padding: 0; margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+.now-list li {
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
+	margin: 0;
+	color: #8b8b99;
+	font-size: 0.9rem;
+}
+.now-title { color: #e8e8ee; font-weight: 500; font-size: 0.9rem; }
+.now-by    { color: #44444f; font-size: 0.78rem; }
+
+/* ── Interests Tabs ──────────────────────────────────── */
+.interests { }
+
+.tab-bar {
+	display: flex;
+	gap: 0.25rem;
+	margin-bottom: 1.25rem;
+	background: var(--c-surface);
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-sm);
+	padding: 4px;
+	width: fit-content;
+}
+
+.tab-btn {
+	appearance: none;
+	all: unset;
+	cursor: pointer;
+	font-family: var(--font);
+	font-size: 0.82rem;
+	font-weight: 500;
+	color: #8b8b99;
+	padding: 0.3em 0.85em;
+	border-radius: 6px;
+	transition: color 0.2s ease, background 0.2s ease;
+	white-space: nowrap;
+}
+.tab-btn:hover  { color: #e8e8ee; background: rgba(255,255,255,0.05); }
+.tab-btn.active { color: #e8e8ee; background: rgba(255,255,255,0.09); }
+
+.tab-panels { }
+.tab-panel  { display: none; }
+.tab-panel.active { display: block; animation: fadeUp 0.3s var(--ease-out) both; }
+
+.interest-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	padding: 0.38em 0.85em;
+	background: var(--c-surface);
+	border: 1px solid var(--c-border);
+	border-radius: 100px;
+	font-size: 0.85rem;
+	color: #8b8b99;
+	font-weight: 500;
+	transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+	cursor: default;
+}
+.chip:hover {
+	border-color: var(--c-border-mid);
+	color: #e8e8ee;
+	transform: translateY(-1px);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+	const tabs   = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+	const panels = document.querySelectorAll<HTMLElement>('.tab-panel');
+
+	tabs.forEach(tab => {
+		tab.addEventListener('click', () => {
+			const target = tab.getAttribute('aria-controls')!;
+
+			// update tabs
+			tabs.forEach(t => {
+				t.classList.remove('active');
+				t.setAttribute('aria-selected', 'false');
+			});
+			tab.classList.add('active');
+			tab.setAttribute('aria-selected', 'true');
+
+			// update panels
+			panels.forEach(p => p.classList.remove('active'));
+			document.getElementById(target)?.classList.add('active');
+		});
+	});
+});
+</script>

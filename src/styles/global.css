@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap');
+
+/* ── Tokens ─────────────────────────────────────────────────── */
+:root {
+  --c-bg:          #0f0f12;
+  --c-surface:     #16161b;
+  --c-surface-alt: #1d1d24;
+  --c-border:      rgba(255,255,255,0.07);
+  --c-border-mid:  rgba(255,255,255,0.13);
+
+  --c-text:        #e8e8ee;
+  --c-muted:       #8b8b99;
+  --c-faint:       #44444f;
+
+  --c-accent:      #6c8cff;      /* friendly blue */
+  --c-accent-warm: #ff9060;     /* warm orange pop */
+  --c-green:       #22c997;
+
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  /* blog compat vars (used by Astro blog template pages) */
+  --accent: #6c8cff;
+  --accent-dark: #3a5bcc;
+  --black: 232, 232, 238;
+  --gray: 139, 139, 153;
+  --gray-light: 35, 35, 42;
+  --gray-dark: 200, 200, 210;
+  --gray-gradient: rgba(22,22,27,0), #0f0f12;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  margin: 0; padding: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* subtle animated mesh */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 0%, rgba(108,140,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 80%, rgba(255,144,96,0.06) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Typography ──────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.65em;
+  color: var(--c-text);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+h1 { font-size: 2.8rem; font-weight: 800; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
+h4 { font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--c-muted); }
+h5 { font-size: 0.875rem; }
+
+p { margin: 0 0 1.1em; color: var(--c-muted); font-size: 1.0rem; font-weight: 400; }
+
+strong, b { font-weight: 600; color: var(--c-text); }
+
+/* ── Links ───────────────────────────────────────────────────── */
+a { color: var(--c-accent); text-decoration: none; font-weight: 500; transition: color 0.2s ease, opacity 0.2s ease; }
+a:hover { color: #fff; }
+a::after { display: none; } /* kill previous underline hack */
+
+/* ── Layout ──────────────────────────────────────────────────── */
+main {
+  position: relative;
+  z-index: 1;
+  width: 720px;
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+  padding: 4rem 0 6rem;
+}
+
+/* ── Cards / Surfaces ────────────────────────────────────────── */
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+.card:hover {
+  border-color: var(--c-border-mid);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  transform: translateY(-2px);
+}
+
+/* ── Section label ───────────────────────────────────────────── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--c-muted);
+  margin-bottom: 1.25rem;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 16px; height: 1px;
+  background: var(--c-faint);
+}
+
+/* ── Lists (blog-compatible) ─────────────────────────────────── */
+ul, ol { margin: 0; padding-left: 1.25em; }
+li { margin-bottom: 0.35em; color: var(--c-muted); }
+
+/* ── Code ────────────────────────────────────────────────────── */
+code {
+  padding: 2px 6px;
+  background: var(--c-surface-alt);
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+pre { padding: 1.5em; border-radius: var(--radius-md); }
+pre > code { all: unset; }
+
+/* ── Blockquote ──────────────────────────────────────────────── */
+blockquote {
+  border-left: 3px solid var(--c-accent);
+  padding: 0 0 0 1.25rem;
+  margin: 0;
+  font-size: 1.1em;
+  color: var(--c-text);
+  font-style: italic;
+}
+
+/* ── HR ──────────────────────────────────────────────────────── */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--c-border);
+  margin: 2.5rem 0;
+}
+
+/* ── Prose (blog posts) ──────────────────────────────────────── */
+.prose { max-width: 68ch; }
+.prose p { margin-bottom: 1.6em; }
+.prose h2 { margin-top: 2.5em; }
+.prose h3 { margin-top: 2em; }
+.prose img { max-width: 100%; height: auto; border-radius: var(--radius-md); }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 0.6em 0.9em; border: 1px solid var(--c-border); }
+
+/* ── Misc inputs ─────────────────────────────────────────────── */
+textarea { width: 100%; font-size: 16px; background: var(--c-surface); color: var(--c-text); border: 1px solid var(--c-border); border-radius: var(--radius-sm); padding: 0.75em; }
+input { font-size: 16px; }
+img { max-width: 100%; height: auto; border-radius: var(--radius-md); }
+
+/* ── Fade-up animation ───────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s var(--ease-out) both; }
+.fade-up-d1 { animation-delay: 0.1s; }
+.fade-up-d2 { animation-delay: 0.2s; }
+.fade-up-d3 { animation-delay: 0.3s; }
+.fade-up-d4 { animation-delay: 0.45s; }
+
+/* ── Accessibility ───────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  h1 { font-size: 2rem; }
+  main { padding: 2.5rem 0 4rem; }
+}

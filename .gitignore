@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# jetbrains setting folder
+.idea/
+
 # dependencies
 node_modules/
 
@@ -12,7 +15,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
 .env
 .env.production
@@ -20,12 +22,4 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# jetbrains setting folder
-.idea/
-node_modules/
-dist/
-.astro/
-.env
-.env.*
-!.env.example
-.DS_Store
+

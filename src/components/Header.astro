@@ -1,0 +1,117 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav>
+		<a href="/" class="brand">
+			<span class="brand-dot"></span>
+			{SITE_TITLE}
+		</a>
+		<div class="nav-links">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
+			<a
+				href="https://www.linkedin.com/in/victorgu/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="nav-cta"
+			>
+				LinkedIn ↗
+			</a>
+		</div>
+	</nav>
+</header>
+
+<style>
+	header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		margin: 0;
+		padding: 0 1.5rem;
+		background: rgba(15, 15, 18, 0.85);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		border-bottom: 1px solid rgba(255,255,255,0.06);
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 720px;
+		margin: 0 auto;
+		height: 56px;
+		gap: 1rem;
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: #e8e8ee;
+		text-decoration: none;
+		letter-spacing: -0.02em;
+		flex-shrink: 0;
+		border-bottom: none !important;
+	}
+	.brand:hover { color: #fff; }
+
+	.brand-dot {
+		width: 8px; height: 8px;
+		border-radius: 50%;
+		background: #6c8cff;
+		box-shadow: 0 0 8px rgba(108,140,255,0.7);
+		flex-shrink: 0;
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.nav-links :global(a) {
+		padding: 0.4em 0.75em;
+		border-radius: 8px;
+		font-size: 0.88rem;
+		font-weight: 500;
+		color: #8b8b99;
+		text-decoration: none;
+		border-bottom: none !important;
+		transition: color 0.2s ease, background 0.2s ease;
+	}
+	.nav-links :global(a:hover) {
+		color: #e8e8ee;
+		background: rgba(255,255,255,0.05);
+	}
+	.nav-links :global(a.active) {
+		color: #e8e8ee;
+		background: rgba(255,255,255,0.07);
+	}
+
+	.nav-cta {
+		padding: 0.38em 0.9em !important;
+		border-radius: 100px !important;
+		font-size: 0.82rem !important;
+		font-weight: 600 !important;
+		color: #6c8cff !important;
+		background: rgba(108,140,255,0.1) !important;
+		border: 1px solid rgba(108,140,255,0.25) !important;
+		transition: background 0.2s ease, border-color 0.2s ease !important;
+		margin-left: 0.5rem;
+	}
+	.nav-cta:hover {
+		background: rgba(108,140,255,0.18) !important;
+		border-color: rgba(108,140,255,0.4) !important;
+		color: #8faaff !important;
+	}
+
+	@media (max-width: 520px) {
+		.nav-cta { display: none; }
+	}
+</style>
